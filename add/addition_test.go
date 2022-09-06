@@ -8,24 +8,24 @@ import (
 	"github.com/stretchr/testify/suite"
 )
 
-//testCase is type struct used for each test case
+// 각 테스트를 위한 구조체
 type testCase struct {
 	value1Float32, value2Float32, expectedResultFloat32 float32
 }
 
-//CalculatorTestSuite is a basic testing suite with methods for storing and retrieving the current *testing.T context.
+// 테스트를 위한 테스트 수트
 type CalculatorTestSuite struct {
 	suite.Suite
 	testSuccessCases []testCase
 	testFailureCases []testCase
 }
 
-//Run takes a testing suite and runs all of the tests attached to it.
+// 관련된 모든 테스트를 실행
 func Test_add_suite(t *testing.T) {
 	suite.Run(t, new(CalculatorTestSuite))
 }
 
-//SetupSuite will run before the tests in the suite are run
+// 테스트를 위한 값 설정
 func (suite *CalculatorTestSuite) SetupTest() {
 	suite.testSuccessCases = []testCase{
 		{10, 20, 30},
